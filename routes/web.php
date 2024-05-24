@@ -15,4 +15,4 @@ Route::get('/activity',[UserController::class,'show_activity'])->name('activity'
 Route::get('/sermons',[UserController::class,'show_sermons'])->name('sermons');
 Route::get('/team',[UserController::class,'show_team'])->name('team');
 Route::get('/testimonial',[UserController::class,'show_testimonial'])->name('testimonial');
-// Route::get('/user',[userController::class,'show'])->name('home');
+// Route::get('/user',[userController::class,'show'])->name('home');///
