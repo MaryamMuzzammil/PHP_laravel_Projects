@@ -62,7 +62,7 @@
                                 <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="text-body ps-4" href=""><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
+                                <a class="text-body ps-4" href="{{route('login')}}"><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
                             </div>
                         </div>
                     </div>
@@ -109,6 +109,7 @@
 @yield('sermons')
 @yield('team')
 @yield('testimonial')
+@yield('login')
 
 
         <!-- Footer Start -->
