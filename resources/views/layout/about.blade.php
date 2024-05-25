@@ -13,6 +13,7 @@
     @endsection
     @section('about')
      <!-- Hero Start -->
+     {{-- comment --}}
      <div class="container-fluid hero-header">
         <div class="container">
             <div class="row">

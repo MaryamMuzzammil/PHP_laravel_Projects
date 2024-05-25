@@ -33,4 +33,7 @@ class UserController extends Controller
     public function show_testimonial(){
         return view('layout.testimonial');
     }
+    public function show_login(){
+        return view('layout.login');
+    }
 }
