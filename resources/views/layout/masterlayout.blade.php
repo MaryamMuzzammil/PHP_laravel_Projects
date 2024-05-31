@@ -110,6 +110,7 @@
 @yield('team')
 @yield('testimonial')
 @yield('login')
+@yield('register')
 
 
         <!-- Footer Start -->
@@ -195,7 +196,7 @@
         <div class="border-top border-secondary pb-4"></div>
         <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                &copy; <a class="border-bottom" href="#">The Mosque</a>, All Right Reserved.
             </div>
             <div class="col-md-6 text-center text-md-end">
                 <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
