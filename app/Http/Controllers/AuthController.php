@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\AuthController;
 
 class AuthController extends Controller
 {
@@ -12,26 +12,25 @@ class AuthController extends Controller
     {
         if(!empty(Auth::check())){
 
-            return redirect('panel/dashboard');
+            return redirect()->route('panel.dashboard');
         }
-        return view('auth.login');
+        return view('layout.login');
     }
-
     public function authLogin(Request $request)
     {
         // $remember = !empty($request->remember) ? true : false;
         if(Auth::attempt(['email' => $request->email,'password' => $request->password])){
 
-            return redirect('panel/dashboard');
+            return redirect()->route('panel.dashboard');
         }else{
 
             return redirect()->back()->with('error','Please enter correct credentials');
         }
     }
-
     public function logout()
     {
         Auth::logout();
-        return redirect(url('/'));
+        // return redirect()->route('layout.login');
+        return redirect(url('/login'));
     }
 }

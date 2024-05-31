@@ -21,8 +21,8 @@
                     <div class="hero-header-inner animated zoomIn">
                         <h1 class="display-1 text-dark">About Us</h1>
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('blogs')}}">Pages</a></li>
                             <li class="breadcrumb-item text-dark" aria-current="page">About</li>
                         </ol>
                     </div>
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <!-- About End -->
+        <!-- About End  to check changes-->
     @endsection
 </body>
 </html>
