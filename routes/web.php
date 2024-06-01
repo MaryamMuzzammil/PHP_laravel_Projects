@@ -32,9 +32,6 @@ Route::view('/login','layout.login')->name('login');
 Route::post('/login',[AuthController::class,'authLogin'])->name('login.post');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
+Route::group(['middleware' => 'useradmin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
-Route::view('/edit', 'layout.event_edit');
-Route::view('/editblog', 'layout.blog_edit');
-// Route::post('/events/update/{id}', [EventController::class, 'update'])->name('events.update');
-Route::post('/addevent', [EventController::class, 'addevent'])->name('addevent');
-Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
+});
