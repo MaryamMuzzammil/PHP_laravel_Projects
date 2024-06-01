@@ -43,6 +43,14 @@
         </a>
       </li>
       {{-- @endif --}}
+        {{-- @if (!empty($permissionCategory)) --}}
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="">
+            <i class="bi bi-person"></i>
+            <span>Testimonials</span>
+          </a>
+        </li>
+        {{-- @endif --}}
 
       {{-- @if (!empty($permissionSubCategory)) --}}
       <li class="nav-item">
@@ -52,12 +60,20 @@
         </a>
       </li>
       {{-- @endif --}}
+        {{-- @if (!empty($permissionSubCategory)) --}}
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="">
+            <i class="bi bi-person"></i>
+            <span>Forms For Donations</span>
+          </a>
+        </li>
+        {{-- @endif --}}
 
       {{-- @if (!empty($permissionProduct)) --}}
       <li class="nav-item">
         <a class="nav-link collapsed" href="">
           <i class="bi bi-person"></i>
-          <span>Product</span>
+          <span>Donations</span>
         </a>
       </li>
       {{-- @endif --}}
