@@ -731,6 +731,11 @@ h6 {
   list-style: none;
 }
 .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+
+  margin-bottom: 19px;
+  
+}
+.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
   display: inline-block;
   font-family: bootstrap-icons !important;
   font-style: normal;
@@ -740,7 +745,7 @@ h6 {
   line-height: 1;
   vertical-align: -.125em;
   -webkit-font-smoothing: antialiased;
-  margin-bottom: 19px;
+  padding-top: 1rem;
   -moz-osx-font-smoothing: grayscale;
 }
 .sidebar-nav .nav-content a {
