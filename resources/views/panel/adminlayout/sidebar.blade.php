@@ -37,7 +37,7 @@
 
       {{-- @if (!empty($permissionCategory)) --}}
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('editblog')}}">
           <i class="bi bi-person"></i>
           <span>Blogs</span>
         </a>
@@ -54,7 +54,7 @@
 
       {{-- @if (!empty($permissionSubCategory)) --}}
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('editevent')}}">
           <i class="bi bi-person"></i>
           <span>Events</span>
         </a>
@@ -62,7 +62,7 @@
       {{-- @endif --}}
         {{-- @if (!empty($permissionSubCategory)) --}}
         <li class="nav-item">
-          <a class="nav-link collapsed" href="">
+          <a class="nav-link collapsed" href="{{route('donation.form')}}">
             <i class="bi bi-person"></i>
             <span>Forms For Donations</span>
           </a>
@@ -71,7 +71,7 @@
 
       {{-- @if (!empty($permissionProduct)) --}}
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('donations.index')}}">
           <i class="bi bi-person"></i>
           <span>Donations</span>
         </a>

@@ -18,6 +18,16 @@ class BlogController extends Controller
         return view('layout.index', ['data' => $blogs]);
     }
     public function addblog(Request $req){
+        $validatedData = $req->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+
+
         $file = $req->file('image');
         $extension = $file->getClientOriginalExtension();
 
