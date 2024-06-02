@@ -13,10 +13,9 @@ use App\Http\Controllers\DashboardController;
 Route::view('/index', 'layout.index')->name('home');
 Route::get('/index',[EventController::class,'index2'])->name('home');
 Route::get('/index',[BlogController::class,'index2b'])->name('home');
-
+// Route::view('/event', 'layout.event')->name('event');
 Route::get('/event',[EventController::class,'index'])->name('event');
 Route::view('/contact', 'layout.contact')->name('contact');
-// Route::view('/blogs', 'layout.blogs')->name('blogs');
 Route::get('/blogs',[BlogController::class,'index'])->name('blogs');
 Route::view('/about', 'layout.about')->name('about');
 Route::view('/activity', 'layout.activity')->name('activity');
