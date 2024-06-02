@@ -392,7 +392,7 @@ h6 {
   padding-left: 10px;
   cursor: pointer;
   color: #996600;
-  margin-top: 19px;
+  margin-top: 7px;
 }
 
 .header .search-bar {
@@ -449,6 +449,7 @@ h6 {
   padding: 0;
   margin-left: -30px;
   background: none;
+  margin-bottom: 15px;
 }
 
 .header .search-form button i {
@@ -730,24 +731,7 @@ h6 {
   margin: 0;
   list-style: none;
 }
-.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
 
-  margin-bottom: 19px;
-  
-}
-.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
-  display: inline-block;
-  font-family: bootstrap-icons !important;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  vertical-align: -.125em;
-  -webkit-font-smoothing: antialiased;
-  padding-top: 1rem;
-  -moz-osx-font-smoothing: grayscale;
-}
 .sidebar-nav .nav-content a {
   display: flex;
   align-items: center;
