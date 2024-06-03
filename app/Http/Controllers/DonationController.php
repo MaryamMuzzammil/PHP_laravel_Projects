@@ -54,7 +54,7 @@ class DonationController extends Controller
 
         Donation::create($req->all());
 
-        return redirect()->route('donations.index')->with('success', 'Donation added successfully.');
+        return redirect()->route('donate')->with('success', 'Donation added successfully.');
     }
 
     public function edit(Donation $donation) {
