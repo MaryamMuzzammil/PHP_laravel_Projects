@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TestimonialController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -22,7 +23,7 @@ Route::view('/about', 'layout.about')->name('about');
 Route::view('/activity', 'layout.activity')->name('activity');
 Route::view('/sermons', 'layout.sermons')->name('sermons');
 Route::view('/team', 'layout.team')->name('team');
-Route::view('/testimonial', 'layout.testimonial')->name('testimonial');
+Route::get('/testimonial', [TestimonialController::class,'index'])->name('testimonial');
 Route::view('/register', 'layout.register')->name('register');
 Route::post('/registersave',[UserController::class,'register'])->name('registerSave');
 Route::view('/editevent', 'layout.event_edit')->name('editevent');
@@ -40,6 +41,13 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::group(['middleware' => 'useradmin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+
+
+
+
+Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
+// Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
+Route::post('testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
 
 
