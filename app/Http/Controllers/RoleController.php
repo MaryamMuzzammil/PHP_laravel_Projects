@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Role;
+use App\Models\Permission;
+use Illuminate\Http\Request;
+use App\Models\PermissionRole;
+use App\Http\Controllers\RoleController;
+
+class RoleController extends Controller
+{
+    public function list()
+    {  
+    $data['getRecord'] = Role::getRecord();
+    return view('panel.role.list',$data);
+
+}
+public function add()
+    {
+        $getPermission = Permission::getRecord();
+        $data['getPermission'] = $getPermission;
+        return view('panel.role.add',$data);
+
+}
+public function insert(Request $request)
+    {
+//    dd($request->all());
+
+    
+       
+        $save = new Role;
+       
+        $save->name = $request->name;
+        $save->save();
+
+        PermissionRole::InsertUpdateRecord($request->permission_id,$save->id);
+        return redirect('panel/role')->with('success','Role successfully created');
+    }
+
+ public function edit($id)
+    {
+        $data['getRecord'] = Role::find($id);
+       $data['getPermission'] = Permission::getRecord();
+       $data['getRolePermission'] = PermissionRole::getRolePermission($id);
+        
+       
+        return view('panel.role.edit',$data);
+    }
+
+    public function update($id,Request $request)
+    {
+        $save = Role::find($id);
+        $save->name = $request->name;
+        $save->save();
+
+        PermissionRole::InsertUpdateRecord($request->permission_id,$save->id);
+        return redirect('panel/role')->with('success','Role successfully updated');
+    }
+
+    public function delete($id,Request $request)
+    {
+        $save = Role::find($id);
+        $save->delete();
+        return redirect('panel/role')->with('success','Role successfully deleted');
+
+
+        
+    }
+
+}
+
+

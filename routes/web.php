@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DashboardController;
@@ -33,4 +34,21 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::group(['middleware' => 'useradmin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
+
+
+Route::get('/panel/role',[RoleController::class,'list'])->name('roleslist');
+Route::get('/panel/role/add',[RoleController::class,'add'])->name('rolesadd');
+Route::post('/panel/role/add',[RoleController::class,'insert'])->name('rolesinsert');
+Route::get('/panel/role/edit/{id}',[RoleController::class,'edit'])->name('rolesedit');
+Route::post('/panel/role/edit/{id}',[RoleController::class,'update'])->name('rolesupdate');
+Route::get('/panel/role/delete/{id}',[RoleController::class,'delete'])->name('rolesdelete');
+
+
+Route::get('/panel/user',[UserController::class,'list'])->name('userslist');
+Route::get('/panel/user/add',[UserController::class,'add'])->name('usersadd');
+Route::post('/panel/user/add',[UserController::class,'insert'])->name('usersinsert');
+Route::get('/panel/user/edit/{id}',[UserController::class,'edit'])->name('usersedit');
+Route::post('/panel/user/edit/{id}',[UserController::class,'update'])->name('usersupdate');
+Route::get('/panel/user/delete/{id}',[UserController::class,'delete'])->name('usersdelete');
+
 });
