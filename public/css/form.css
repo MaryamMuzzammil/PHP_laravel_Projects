@@ -1,0 +1,106 @@
+body {
+    background-color: #fff7e6;
+}
+.form-container {
+    background-color: #ffeb99;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-label {
+    color: #996600;
+}
+.btn-primary {
+    background-color: #996600;
+    border-color: #996600;
+}
+.edit-event {
+    color: #996600;
+}
+.text-danger {
+    color: #dc3545;
+}
+     body {
+            background-color: #fff7e6;
+        }
+        .form-container {
+            background-color: #ffeb99;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            color: #996600;
+        }
+        .btn-primary {
+            background-color: #996600;
+            border-color: #996600;
+        }
+        .edit-event {
+            color: #996600;
+        }
+        .text-danger {
+            color: #dc3545;
+        }
+
+        .edit-blog {
+            color: #996600;
+        }
+
+        
+      
+      
+        .btn-warning {
+            background-color: #fff2cc;
+            border-color: #fff2cc;
+            color: #996600;
+        }
+        .btn-danger {
+            background-color: #ff6666;
+            border-color: #ff6666;
+        }
+        .btn-primary:hover {
+            background-color: #cc7a00;
+            border-color: #cc7a00;
+        }
+        .btn-warning:hover {
+            background-color: #ffe599;
+            border-color: #ffe599;
+            color: #996600;
+        }
+        .btn-danger:hover {
+            background-color: #e60000;
+            border-color: #e60000;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .input-group .form-control {
+            border-color: #996600;
+        }
+        .input-group .btn-primary {
+            border-color: #996600;
+        }
+        .alert-success {
+            background-color: #ffeb99;
+            color: #996600;
+            border-color: #996600;
+        }
+        .pagination {
+            justify-content: center;
+        }
+        .pagination .page-item.active .page-link {
+            background-color: #fff2cc;
+            border-color: #fff2cc;
+        }
+        .pagination .page-link {
+            color: #996600;
+            background-color: #fff7e6;
+            border: 1px solid #996600;
+            margin: 0 2px;
+        }
+        .pagination .page-link:hover {
+            background-color: #ffe599;
+            border-color: #ffe599;
+        }
+    

@@ -8,71 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Donations</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #fff7e6;
-        }
-        .edit-event {
-            color: #996600;
-        }
-        .btn-primary {
-            background-color: #996600;
-            border-color: #996600;
-        }
-        .btn-warning {
-            background-color: #fff2cc;
-            border-color: #fff2cc;
-            color: #996600;
-        }
-        .btn-danger {
-            background-color: #ff6666;
-            border-color: #ff6666;
-        }
-        .btn-primary:hover {
-            background-color: #cc7a00;
-            border-color: #cc7a00;
-        }
-        .btn-warning:hover {
-            background-color: #ffe599;
-            border-color: #ffe599;
-            color: #996600;
-        }
-        .btn-danger:hover {
-            background-color: #e60000;
-            border-color: #e60000;
-        }
-        .table th, .table td {
-            vertical-align: middle;
-        }
-        .input-group .form-control {
-            border-color: #996600;
-        }
-        .input-group .btn-primary {
-            border-color: #996600;
-        }
-        .alert-success {
-            background-color: #ffeb99;
-            color: #996600;
-            border-color: #996600;
-        }
-        .pagination {
-            justify-content: center;
-        }
-        .pagination .page-item.active .page-link {
-            background-color: #fff2cc;
-            border-color: #fff2cc;
-        }
-        .pagination .page-link {
-            color: #996600;
-            background-color: #fff7e6;
-            border: 1px solid #996600;
-            margin: 0 2px;
-        }
-        .pagination .page-link:hover {
-            background-color: #ffe599;
-            border-color: #ffe599;
-        }
-    </style>
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">

@@ -13,7 +13,7 @@ class DonationController extends Controller
 
     public function donate(Request $req) {
         $req->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|alpha|max:255',
             'email' => 'required|email|max:255',
             'amount' => 'required|numeric|min:1',
             'payment_method' => 'required|string|in:credit_card,paypal',
@@ -26,7 +26,7 @@ class DonationController extends Controller
             'payment_method' => $req->payment_method,
         ]);
 
-        return redirect()->route('donations')->with('success', 'Thank you for your donation!');
+        return redirect()->route('donate')->with('success', 'Thank you for your donation!');
     }
 
     public function index(Request $req) {
@@ -46,7 +46,7 @@ class DonationController extends Controller
 
     public function store(Request $req) {
         $req->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|alpha|max:255',
             'email' => 'required|email|max:255',
             'amount' => 'required|numeric|min:1',
             'payment_method' => 'required|string|in:credit_card,paypal',

@@ -2,28 +2,7 @@
 
 @section('content')
 
-<style>
-    body {
-    background-color: #fff7e6;
-}
-.form-container {
-    background-color: #ffeb99;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form-label {
-    color: #996600;
-}
-.btn-primary {
-    background-color: #996600;
-    border-color: #996600;
-}
-.edit-event {
-    color: #996600;
-}
-
-</style>
+<link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <div class="container mt-5">
         <h3 class="edit-event">Edit New Testimonial</h3>
 
