@@ -12,6 +12,14 @@ class RoleController extends Controller
 {
     public function list()
     {  
+        $permissionRole = PermissionRole::getPermission('Role',Auth::user()->role_id);
+        if(empty($permissionRole)){
+
+            abort(404);
+        }
+        $data['permissionAdd'] = PermissionRole::getPermission('Add role',Auth::user()->role_id);
+        $data['permissionEdit'] = PermissionRole::getPermission('Edit Role',Auth::user()->role_id);
+        $data['permissionDelete'] = PermissionRole::getPermission('Delete Role',Auth::user()->role_id);
     $data['getRecord'] = Role::getRecord();
     return view('panel.role.list',$data);
 

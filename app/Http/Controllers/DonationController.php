@@ -13,11 +13,13 @@ class DonationController extends Controller
 
     public function donate(Request $req) {
         $req->validate([
-            'name' => 'required|alpha|max:255',
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/|max:255',
             'email' => 'required|email|max:255',
             'amount' => 'required|numeric|min:1',
             'payment_method' => 'required|string|in:credit_card,paypal',
         ]);
+
+        
 
         Donation::create([
             'name' => $req->name,
