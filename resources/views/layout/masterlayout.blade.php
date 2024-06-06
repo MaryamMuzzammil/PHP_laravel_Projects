@@ -87,7 +87,7 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
                                     <a href="{{route('blogs')}}" class="dropdown-item">Latest Blog</a>
-                                    <a href="{{route('team')}}" class="dropdown-item">Our Team</a>
+                                    {{-- <a href="{{route('team')}}" class="dropdown-item">Our Team</a> --}}
                                     <a href="{{route('testimonial')}}" class="dropdown-item">Testimonial</a>
                                     {{-- <a href="404.html" class="dropdown-item">404 Page</a> --}}
                                 </div>
@@ -136,7 +136,7 @@
                 <div class="footer-item mt-5">
                     <h4 class="text-light mb-4">THE<span class="text-primary">Mosque</span></h4>
                     <p class="mb-4 text-secondary">Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                    <a href="" class="btn btn-primary py-2 px-4">Donate Now</a>
+                    <a href="{{route('donation.form')}}" class="btn btn-primary py-2 px-4">Donate Now</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
@@ -146,16 +146,17 @@
                         <h6 class="text-secondary mb-0">Our Address</h6>
                         <div class="d-flex align-items-center border-bottom py-4">
                             <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-map-marker-alt text-dark"></i></span>
-                            <a href="" class="text-body">123 Street, New York, USA</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=123+Street%2C+New+York%2C+USA" class="text-body" target="_blank">123 Street, New York, USA</a>
                         </div>
                         <h6 class="text-secondary mt-4 mb-0">Our Mobile</h6>
                         <div class="d-flex align-items-center py-4">
                             <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i class="fa fa-phone-alt text-dark"></i></span>
-                            <a href="" class="text-body">+012 345 67890</a>
+                            <a href="tel:+01234567890" class="text-body">+012 345 67890</a>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item mt-5">
                     <h4 class="text-light mb-4">Explore Link</h4>

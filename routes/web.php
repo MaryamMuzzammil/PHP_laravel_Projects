@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TestimonialController;
@@ -23,20 +24,20 @@ Route::get('/blogs',[BlogController::class,'index'])->name('blogs');
 Route::view('/about', 'layout.about')->name('about');
 Route::view('/activity', 'layout.activity')->name('activity');
 Route::view('/sermons', 'layout.sermons')->name('sermons');
-Route::view('/team', 'layout.team')->name('team');
+// Route::view('/team', 'layout.team')->name('team');
 Route::get('/testimonial', [TestimonialController::class,'index'])->name('testimonial');
 Route::view('/register', 'layout.register')->name('register');
 Route::post('/registersave',[UserController::class,'register'])->name('registerSave');
 Route::view('/editevent', 'layout.event_edit')->name('editevent');
 Route::post('/addevent', [EventController::class, 'addevent'])->name('addevent');
-// Route::view('/editblog', 'layout.blog_edit')->name('editblog');
-// Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
+Route::view('/editblog', 'layout.blog_edit')->name('editblog');
+Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
 Route::resource('donations', DonationController::class);
 Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
 // Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
 Route::post('testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
-Route::get('/donate', [DonationController::class, 'showForm'])->name('donation.form');
+
 Route::post('/donate', [DonationController::class, 'donate'])->name('donate');
 
 Route::view('/login','layout.login')->name('login');
@@ -46,7 +47,7 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::group(['middleware' => 'useradmin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');
 
-
+Route::get('/donate', [DonationController::class, 'showForm'])->name('donation.form');
 Route::get('/panel/role',[RoleController::class,'list'])->name('roleslist');
 Route::get('/panel/role/add',[RoleController::class,'add'])->name('rolesadd');
 Route::post('/panel/role/add',[RoleController::class,'insert'])->name('rolesinsert');
@@ -70,7 +71,8 @@ Route::post('/panel/blogs/edit/{id}',[BlogController::class,'update'])->name('bl
 Route::get('/panel/blogs/delete/{id}',[BlogController::class,'delete'])->name('blogsdelete');
 
 
-
+Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
+Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password');
 
 
 
