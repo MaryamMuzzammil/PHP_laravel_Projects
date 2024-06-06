@@ -5,7 +5,7 @@
       @php
         $permissionUser = App\Models\PermissionRole::getPermission('User',Auth::user()->role_id);
         $permissionRole = App\Models\PermissionRole::getPermission('Role',Auth::user()->role_id);
-        $permissionBlogs = App\Models\PermissionRole::getPermission('Blogs',Auth::user()->role_id);
+        $permissionBlog = App\Models\PermissionRole::getPermission('Blog',Auth::user()->role_id);
         $permissionTestimonials = App\Models\PermissionRole::getPermission('Testimonials',Auth::user()->role_id);
         $permissionEvents = App\Models\PermissionRole::getPermission('Events',Auth::user()->role_id);
         $permissionForms_For_Donations = App\Models\PermissionRole::getPermission('Forms For Donations',Auth::user()->role_id);
@@ -39,9 +39,9 @@
       </li>
       @endif
 
-      @if (!empty($permissionBlogs))
+      @if (!empty($permissionBlog))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('editblog')}}">
+        <a class="nav-link collapsed" href="{{route('blogslist')}}">
           <i class="bi bi-person"></i>
           <span>Blogs</span>
         </a>
