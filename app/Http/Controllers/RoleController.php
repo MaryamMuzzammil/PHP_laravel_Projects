@@ -27,7 +27,12 @@ class RoleController extends Controller
 
 }
 public function add()
-    {
+    {   
+        $permissionRole = PermissionRole::getPermission('Add Role',Auth::user()->role_id);
+        if(empty($permissionRole)){
+
+            abort(404);
+        }
         $getPermission = Permission::getRecord();
         $data['getPermission'] = $getPermission;
         return view('panel.role.add',$data);
@@ -37,7 +42,11 @@ public function insert(Request $request)
     {
 //    dd($request->all());
 
-    
+      $permissionRole = PermissionRole::getPermission(' Add Role',Auth::user()->role_id);
+if(empty($permissionRole)){
+
+    abort(404);
+}
        
         $save = new Role;
        
@@ -49,7 +58,12 @@ public function insert(Request $request)
     }
 
  public function edit($id)
-    {
+    {   
+        $permissionRole = PermissionRole::getPermission('Edit Role',Auth::user()->role_id);
+        if(empty($permissionRole)){
+
+            abort(404);
+        }
         $data['getRecord'] = Role::find($id);
        $data['getPermission'] = Permission::getRecord();
        $data['getRolePermission'] = PermissionRole::getRolePermission($id);
@@ -60,6 +74,11 @@ public function insert(Request $request)
 
     public function update($id,Request $request)
     {
+        $permissionRole = PermissionRole::getPermission('Edit Role',Auth::user()->role_id);
+        if(empty($permissionRole)){
+
+            abort(404);
+        }
         $save = Role::find($id);
         $save->name = $request->name;
         $save->save();
@@ -70,6 +89,11 @@ public function insert(Request $request)
 
     public function delete($id,Request $request)
     {
+        $permissionRole = PermissionRole::getPermission('Delete Role',Auth::user()->role_id);
+        if(empty($permissionRole)){
+
+            abort(404);
+        }
         $save = Role::find($id);
         $save->delete();
         return redirect('panel/role')->with('success','Role successfully deleted');

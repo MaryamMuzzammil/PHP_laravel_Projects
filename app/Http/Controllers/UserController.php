@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\PermissionRole;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -27,8 +29,15 @@ class UserController extends Controller
     }
 
     public function list()
-    {
-        // Fetch users along with their associated roles
+    {   
+        $permissionUser = PermissionRole::getPermission('User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
+        $data['permissionAdd'] = PermissionRole::getPermission('Add User',Auth::user()->role_id);
+        $data['permissionEdit'] = PermissionRole::getPermission('Edit User',Auth::user()->role_id);
+        $data['permissionDelete'] = PermissionRole::getPermission('Delete Delete',Auth::user()->role_id);
        
         $data['getRecord'] = User::getRecord();
         return view('panel.user.list', $data);
@@ -36,14 +45,23 @@ class UserController extends Controller
 
 
     public function add()
-    {
+    {  $permissionUser = PermissionRole::getPermission(' Add User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
         $data['getRole'] = Role::getRecord();
         return view('panel.user.add',$data);
     }
 
 
     public function insert(Request $request)
-    {
+    {   
+        $permissionUser = PermissionRole::getPermission(' Add User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
         $user = new User;  
         $user->name = $request->name;
         $user->email = $request->email;
@@ -54,14 +72,24 @@ class UserController extends Controller
     }
 
     public function edit($id)
-    {
+    {  
+         $permissionUser = PermissionRole::getPermission('Edit User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
         $data['getRecord'] = User::find($id);  
         $data['getRole'] = Role::get();  
         return view('panel.user.edit',$data);
     }
 
     public function update($id,Request $request)
-    {
+    {   
+        $permissionUser = PermissionRole::getPermission(' Edit User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
         $user = User::find($id);
         $user->name = $request->name;
         if(!empty($request->password)){
@@ -76,7 +104,12 @@ class UserController extends Controller
     }
 
     public function delete($id,Request $request)
-    {
+    {   
+        $permissionUser = PermissionRole::getPermission(' Delete User',Auth::user()->role_id);
+        if(empty($permissionUser)){
+
+            abort(404);
+        }
         $save = User::find($id);
         $save->delete();
         return redirect('panel/user')->with('success','User successfully deleted');
