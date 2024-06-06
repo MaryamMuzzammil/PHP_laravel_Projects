@@ -19,6 +19,8 @@ class DonationController extends Controller
             'payment_method' => 'required|string|in:credit_card,paypal',
         ]);
 
+        
+
         Donation::create([
             'name' => $req->name,
             'email' => $req->email,

@@ -73,7 +73,7 @@
                      @csrf
                      <div class="col-12">
                         <label for="yourname" class="form-label">Name</label>
-                        <input type="password" name="name" class="form-control" id="yourname" required>
+                        <input type="text" name="name" class="form-control" id="yourname" required>
                         <div class="invalid-feedback">Please enter your name</div>
                       </div>
 

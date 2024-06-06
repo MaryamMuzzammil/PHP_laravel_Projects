@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    static public function getRecord(){
+        return User::select('users.*', 'roles.name as role_name')
+               -> join('roles', 'users.role_id', '=', 'roles.id')->get();
+     }
 }
