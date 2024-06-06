@@ -70,6 +70,13 @@ Route::get('/panel/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogs
 Route::post('/panel/blogs/edit/{id}',[BlogController::class,'update'])->name('blogsupdate');
 Route::get('/panel/blogs/delete/{id}',[BlogController::class,'delete'])->name('blogsdelete');
 
+Route::get('/panel/events',[EventController::class,'list'])->name('eventslist');
+Route::get('/panel/events/add',[EventController::class,'add'])->name('eventsadd');
+Route::post('/panel/events/add',[EventController::class,'insert'])->name('eventsinsert');
+Route::get('/panel/events/edit/{id}',[EventController::class,'edit'])->name('eventsedit');
+Route::post('/panel/events/edit/{id}',[EventController::class,'update'])->name('eventsupdate');
+Route::get('/panel/events/delete/{id}',[EventController::class,'delete'])->name('eventsdelete');
+
 
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
 Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password');
