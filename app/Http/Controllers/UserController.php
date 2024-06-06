@@ -37,7 +37,7 @@ class UserController extends Controller
         }
         $data['permissionAdd'] = PermissionRole::getPermission('Add User',Auth::user()->role_id);
         $data['permissionEdit'] = PermissionRole::getPermission('Edit User',Auth::user()->role_id);
-        $data['permissionDelete'] = PermissionRole::getPermission('Delete Delete',Auth::user()->role_id);
+        $data['permissionDelete'] = PermissionRole::getPermission('Delete User',Auth::user()->role_id);
        
         $data['getRecord'] = User::getRecord();
         return view('panel.user.list', $data);
@@ -105,7 +105,7 @@ class UserController extends Controller
 
     public function delete($id,Request $request)
     {   
-        $permissionUser = PermissionRole::getPermission(' Delete User',Auth::user()->role_id);
+        $permissionUser = PermissionRole::getPermission('Delete User',Auth::user()->role_id);
         if(empty($permissionUser)){
 
             abort(404);

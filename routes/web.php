@@ -29,8 +29,8 @@ Route::view('/register', 'layout.register')->name('register');
 Route::post('/registersave',[UserController::class,'register'])->name('registerSave');
 Route::view('/editevent', 'layout.event_edit')->name('editevent');
 Route::post('/addevent', [EventController::class, 'addevent'])->name('addevent');
-Route::view('/editblog', 'layout.blog_edit')->name('editblog');
-Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
+// Route::view('/editblog', 'layout.blog_edit')->name('editblog');
+// Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
 Route::resource('donations', DonationController::class);
 Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
 // Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
@@ -61,6 +61,13 @@ Route::post('/panel/user/add',[UserController::class,'insert'])->name('usersinse
 Route::get('/panel/user/edit/{id}',[UserController::class,'edit'])->name('usersedit');
 Route::post('/panel/user/edit/{id}',[UserController::class,'update'])->name('usersupdate');
 Route::get('/panel/user/delete/{id}',[UserController::class,'delete'])->name('usersdelete');
+
+Route::get('/panel/blogs',[BlogController::class,'list'])->name('blogslist');
+Route::get('/panel/blogs/add',[BlogController::class,'add'])->name('blogsadd');
+Route::post('/panel/blogs/add',[BlogController::class,'insert'])->name('blogsinsert');
+Route::get('/panel/blogs/edit/{id}',[BlogController::class,'edit'])->name('blogsedit');
+Route::post('/panel/blogs/edit/{id}',[BlogController::class,'update'])->name('blogsupdate');
+Route::get('/panel/blogs/delete/{id}',[BlogController::class,'delete'])->name('blogsdelete');
 
 
 
