@@ -19,8 +19,10 @@
                 <h5 class="card-title">Users List</h5>
             </div>
             <div class="col-lg-6" style="text-align: right">
+              @if(!empty($permissionAdd))
                 <a href="{{route('usersadd')}}" style="margin-top: 10px" class="btn btn-primary pull-right">Add</a>
-            </div>
+                @endif
+              </div>
         </div>
             <!-- Table with stripped rows -->
             <table class="table table-striped">
@@ -31,7 +33,9 @@
                   <th scope="col">Email</th>
                   <th scope="col">Role</th>
                   <th scope="col">Date</th>
+                  @if (!empty($permissionEdit || $permissionDelete))
                   <th scope="col">Action</th>
+                  @endif
                 </tr>
               </thead>
               <tbody>
@@ -43,9 +47,13 @@
                     <td>{{ $value->role_name }}</td>
                     <td>{{ $value->created_at }}</td>
                     <td>
+                      @if (!empty($permissionEdit)) 
                         <a href="{{route('usersedit',$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                        @endif
+                        @if (!empty($permissionDelete)) 
                         <a href="{{ route('usersdelete',$value->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
+                        @endif
+                      </td>
                   </tr>
                 @endforeach
               </tbody>

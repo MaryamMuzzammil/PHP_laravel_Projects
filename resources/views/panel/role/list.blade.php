@@ -19,9 +19,9 @@
                 <h5 class="card-title">Roles List</h5>
             </div>
             <div class="col-lg-6" style="text-align: right">
-                {{-- @if (!empty($permissionAdd)) --}}
+                @if(!empty($permissionAdd))
                 <a href="{{route('rolesadd')}}" style="margin-top: 10px" class="btn btn-primary pull-right">Add</a>
-                {{-- @endif --}}
+                @endif
             </div>
         </div>
             <!-- Table with stripped rows -->
@@ -31,9 +31,9 @@
                   <th scope="col">Id</th>
                   <th scope="col">Name</th>
                   <th scope="col">Date</th>
-                  {{-- @if (!empty($permissionEdit || $permissionDelete)) --}}
+                  @if (!empty($permissionEdit || $permissionDelete))
                   <th scope="col">Action</th>
-                  {{-- @endif --}}
+                  @endif
                 </tr>
               </thead>
               <tbody>
@@ -42,8 +42,15 @@
                     <th scope="row">{{$value->id}}</th>
                     <td>{{$value->name}}</td>
                     <td>{{ $value->created_at }}</td>
-                    <td><a href="{{route('rolesedit',$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{{route('rolesdelete',$value->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                    <td>
+                      @if (!empty($permissionEdit))  
+                    <a href="{{route('rolesedit',$value->id)}}" class="btn btn-primary btn-sm">Edit</a>
+                      @endif
+                      @if (!empty($permissionDelete)) 
+                   <a href="{{route('rolesdelete',$value->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                   @endif
+                  </td>
+
                   </tr>
                 @endforeach
               </tbody>
