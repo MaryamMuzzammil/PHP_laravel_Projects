@@ -41,7 +41,7 @@
 
       @if (!empty($permissionBlogs))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('editblog')}}">
           <i class="bi bi-person"></i>
           <span>Blogs</span>
         </a>
@@ -49,7 +49,7 @@
       @endif
         @if (!empty($permissionTestimonials))
         <li class="nav-item">
-          <a class="nav-link collapsed" href="">
+          <a class="nav-link collapsed" href="{{route('testimonial_edit')}}">
             <i class="bi bi-person"></i>
             <span>Testimonials</span>
           </a>
@@ -58,7 +58,7 @@
 
       @if (!empty($permissionEvents))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('editevent')}}">
           <i class="bi bi-person"></i>
           <span>Events</span>
         </a>
@@ -66,7 +66,7 @@
       @endif
         @if (!empty( $permissionForms_For_Donations))
         <li class="nav-item">
-          <a class="nav-link collapsed" href="">
+          <a class="nav-link collapsed" href="{{route('donation.form')}}">
             <i class="bi bi-person"></i>
             <span>Forms For Donations</span>
           </a>
@@ -75,7 +75,7 @@
 
       @if (!empty($permissionDonations))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('donations.index')}}">
           <i class="bi bi-person"></i>
           <span>Donations</span>
         </a>
