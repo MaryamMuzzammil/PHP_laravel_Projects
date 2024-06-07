@@ -48,20 +48,20 @@
                         <div class="col-lg-7 text-start">
                             <div class="h-100 d-inline-flex align-items-center me-4">
                                 <span class="fa fa-phone-alt me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>+012 345 6789</span></a>
+                                <a href="tell:+012 345 6789" class="text-secondary"><span>+012 345 6789</span></a>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="far fa-envelope me-2 text-dark"></span>
-                                <a href="#" class="text-secondary"><span>info@example.com</span></a>
+                                <a href="mailto:lillybloom211@gmail.com" class="text-secondary"><span>TheMosque@gmail.com</span></a>
                             </div>
                         </div>
                         <div class="col-lg-5 text-end">
                             <div class="h-100 d-inline-flex align-items-center">
                                 <span class="text-body">Follow Us:</span>
-                                <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="text-dark px-2" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                <a class="text-dark px-2" href="https://x.com/?lang=en"><i class="fab fa-twitter"></i></a>
+                                <a class="text-dark px-2" href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="text-dark px-2" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                                 <a class="text-body ps-4" href="{{route('login')}}"><i class="fa fa-lock text-dark me-1"></i> Signup/login</a>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                             </div>
                             <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
+                        <a href="{{route('donation.form')}}" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donate</a>
                     </div>
                 </nav>
             </div>
@@ -123,8 +123,17 @@
             </div>
             <div class="col-lg-5">
                 <div class="position-relative mx-auto">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subcribe</button>
+                    <form action="{{ route('subscribe') }}" method="POST">
+                        @csrf
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" >
+                        <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
+                    </form>
+                    
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="col-12">

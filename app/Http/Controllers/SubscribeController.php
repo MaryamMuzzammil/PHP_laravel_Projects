@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\SubscriptionMail;
+use Illuminate\Support\Facades\Mail;
 
 class SubscribeController extends Controller
 {
+   
+
     public function subscribe(Request $request)
     {
         // Validate the request
@@ -13,11 +17,13 @@ class SubscribeController extends Controller
             'email' => 'required|email',
         ]);
 
-        // Send the email
+        // Get the email from the request
         $email = $request->email;
-        Mail::to('your-email@example.com')->send(new SubscriptionMail($email));
 
-        // Optionally, you can redirect the user back with a success message
-        return back()->with('success', 'Subscription successful.');
+        // Send the email
+        Mail::to('lillybloom211@gmail.com')->send(new SubscriptionMail($email));
+
+        // Redirect back with success message and the email
+        return back()->with('success', 'Thank you for subscribing. Your email address ' . $email . ' has been added to our mailing list.');
     }
 }

@@ -6,9 +6,11 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\TestimonialController;
 
 // Route::get('/', function () {
@@ -43,6 +45,10 @@ Route::post('/donate', [DonationController::class, 'donate'])->name('donate');
 Route::view('/login','layout.login')->name('login');
 Route::post('/login',[AuthController::class,'authLogin'])->name('login.post');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+
+Route::post('/subscribe', [SubscribeController::class, 'subscribe'])->name('subscribe');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 
 Route::group(['middleware' => 'useradmin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('panel.dashboard');

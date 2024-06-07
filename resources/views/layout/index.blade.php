@@ -103,7 +103,7 @@
                             <h1 class="mb-0">Every Muslim Needs To Realise The Importance Of The "Pillar" Of Islam</h1>
                         </div>
                         <div class="col-lg-3">
-                            <a href="" class="btn btn-light py-2 px-4">Learn More</a>
+                            <a href="{{route('about')}}" class="btn btn-light py-2 px-4">Learn More</a>
                         </div>
                     </div>
                 </div>
