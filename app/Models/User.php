@@ -49,4 +49,14 @@ class User extends Authenticatable
         return User::select('users.*', 'roles.name as role_name')
                -> join('roles', 'users.role_id', '=', 'roles.id')->get();
      }
+    //  public function role()
+    //  {
+    //      return $this->belongsTo(Role::class, 'role_id');
+    //  }
+     // User.php
+public function role()
+{
+    return $this->belongsTo(Role::class);
+}
+
 }
