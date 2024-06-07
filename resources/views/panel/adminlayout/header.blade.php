@@ -12,7 +12,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center no-underline">
+      <a href="{{route('panel.dashboard')}}" class="logo d-flex align-items-center no-underline">
         {{-- <img src="/img/logo.png" alt=""> --}}
         <div class="col-lg-2">
             <i class="fa fa-mosque fa-lg" style="color: #996600;"></i>

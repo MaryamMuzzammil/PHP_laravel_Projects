@@ -123,9 +123,12 @@
             </div>
             <div class="col-lg-5">
                 <div class="position-relative mx-auto">
-                    <form action="{{ route('subscribe') }}" method="POST">
+                    <form action="{{ route('subscribe') }}" method="POST" >
                         @csrf
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" name="email" placeholder="Your email" >
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" name="email" placeholder="Your email" >
+                        @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                         <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
                     </form>
                     
@@ -170,14 +173,14 @@
                 <div class="footer-item mt-5">
                     <h4 class="text-light mb-4">Explore Link</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Home</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>About Us</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Features</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Contact us</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Blog</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Our Events</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Donations</a>
-                        <a class="text-body mb-2" href=""><i class="fa fa-check text-primary me-2"></i>Sermons</a>
+                        <a class="text-body mb-2" href="{{route('home')}}"><i class="fa fa-check text-primary me-2"></i>Home</a>
+                        <a class="text-body mb-2" href="{{route('about')}}"><i class="fa fa-check text-primary me-2"></i>About Us</a>
+                     
+                        <a class="text-body mb-2" href="{{route('contact')}}"><i class="fa fa-check text-primary me-2"></i>Contact us</a>
+                        <a class="text-body mb-2" href="{{route('blogs')}}"><i class="fa fa-check text-primary me-2"></i>Our Blog</a>
+                        <a class="text-body mb-2" href="{{route('event')}}"><i class="fa fa-check text-primary me-2"></i>Our Events</a>
+                        <a class="text-body mb-2" href="{{route('donation.form')}}"><i class="fa fa-check text-primary me-2"></i>Donations</a>
+                        <a class="text-body mb-2" href="{{route('sermons')}}"><i class="fa fa-check text-primary me-2"></i>Sermons</a>
                     </div>
                 </div>
             </div>

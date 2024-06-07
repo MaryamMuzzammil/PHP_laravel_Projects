@@ -628,7 +628,7 @@ h6 {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #aab7cf;
+  background-color: #ffffff;
 }
 
 @media (min-width: 1200px) {
@@ -1242,7 +1242,7 @@ h6 {
   padding: 20px 0;
   font-size: 14px;
   transition: all 0.3s;
-  border-top: 1px solid #cddfff;
+  border-top: 1px solid #99660022;
 }
 
 .footer .copyright {
