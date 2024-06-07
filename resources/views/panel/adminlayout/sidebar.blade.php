@@ -6,7 +6,7 @@
         $permissionUser = App\Models\PermissionRole::getPermission('User',Auth::user()->role_id);
         $permissionRole = App\Models\PermissionRole::getPermission('Role',Auth::user()->role_id);
         $permissionBlog = App\Models\PermissionRole::getPermission('Blog',Auth::user()->role_id);
-        $permissionTestimonials = App\Models\PermissionRole::getPermission('Testimonials',Auth::user()->role_id);
+        $permissionTestimonial = App\Models\PermissionRole::getPermission('Testimonial',Auth::user()->role_id);
         $permissionEvent = App\Models\PermissionRole::getPermission('Event',Auth::user()->role_id);
         $permissionForms_For_Donations = App\Models\PermissionRole::getPermission('Forms For Donations',Auth::user()->role_id);
          $permissionDonations = App\Models\PermissionRole::getPermission('Donations',Auth::user()->role_id);
@@ -47,9 +47,9 @@
         </a>
       </li>
       @endif
-        @if (!empty($permissionTestimonials))
+        @if (!empty($permissionTestimonial))
         <li class="nav-item">
-          <a class="nav-link collapsed" href="{{route('testimonial_edit')}}">
+          <a class="nav-link collapsed" href="{{route('testimonialslist')}}">
             <i class="bi bi-person"></i>
             <span>Testimonials</span>
           </a>

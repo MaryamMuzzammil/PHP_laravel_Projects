@@ -4,7 +4,7 @@
  @section('content')
 
  <div class="pagetitle">
-    <h1>Users</h1> 
+    <h1>Events</h1> 
    
   </div><!-- End Page Title -->
 

@@ -70,8 +70,8 @@
                 @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-            </div>
-            <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Update</button>
+            
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 </body>

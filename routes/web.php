@@ -30,10 +30,10 @@ Route::view('/sermons', 'layout.sermons')->name('sermons');
 Route::get('/testimonial', [TestimonialController::class,'index'])->name('testimonial');
 Route::view('/register', 'layout.register')->name('register');
 Route::post('/registersave',[UserController::class,'register'])->name('registerSave');
-Route::view('/editevent', 'layout.event_edit')->name('editevent');
-Route::post('/addevent', [EventController::class, 'addevent'])->name('addevent');
-Route::view('/editblog', 'layout.blog_edit')->name('editblog');
-Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
+// Route::view('/editevent', 'layout.event_edit')->name('editevent');
+// Route::post('/addevent', [EventController::class, 'addevent'])->name('addevent');
+// Route::view('/editblog', 'layout.blog_edit')->name('editblog');
+// Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
 Route::resource('donations', DonationController::class);
 Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
 // Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
@@ -82,6 +82,14 @@ Route::post('/panel/events/add',[EventController::class,'insert'])->name('events
 Route::get('/panel/events/edit/{id}',[EventController::class,'edit'])->name('eventsedit');
 Route::post('/panel/events/edit/{id}',[EventController::class,'update'])->name('eventsupdate');
 Route::get('/panel/events/delete/{id}',[EventController::class,'delete'])->name('eventsdelete');
+
+
+Route::get('/panel/testimonials',[TestimonialController::class,'list'])->name('testimonialslist');
+Route::get('/panel/testimonials/add',[TestimonialController::class,'add'])->name('testimonialsadd');
+Route::post('/panel/testimonials/add',[TestimonialController::class,'insert'])->name('testimonialsinsert');
+Route::get('/panel/testimonials/edit/{id}',[TestimonialController::class,'edit'])->name('testimonialsedit');
+Route::post('/panel/testimonials/edit/{id}',[TestimonialController::class,'update'])->name('testimonialsupdate');
+Route::get('/panel/testimonials/delete/{id}',[TestimonialController::class,'delete'])->name('testimonialsdelete');
 
 
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');

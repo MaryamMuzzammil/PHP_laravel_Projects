@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Testimonial;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Testimonial extends Model
 {
@@ -14,4 +15,8 @@ class Testimonial extends Model
         'profession',
         'image',
     ];
+
+    static public function getRecord(){
+        return Testimonial::get();
+     }
 }

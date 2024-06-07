@@ -54,8 +54,8 @@
             <div class="mb-3">
                 <label class="form-label">Current Image:</label>
                     <img src="{{ asset($getRecord->image) }}" alt="Current Image" style="max-width: 20%;">
-                 </div>
-                 <div class="mb-3">
+            </div>
+            <div class="mb-3">
                     <label class="form-label">New Image</label>
                     <input type="file" name="image" class="form-control">
                  </div>
@@ -63,7 +63,7 @@
                 @error('image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-            </div>
+            
             <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Update</button>
         </form>
     </div>
