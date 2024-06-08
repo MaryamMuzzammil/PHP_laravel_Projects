@@ -16,11 +16,7 @@ class EventController extends Controller
         return view('layout.event', ['data' => $events]);
     }
 
-    public function index2(){
-        $events = Event::all();
-        return view('layout.index', ['data' => $events]);
-    }
-
+   
     public function list(Request $request)
     {  
         $permissionEvent = PermissionRole::getPermission('Event',Auth::user()->role_id);

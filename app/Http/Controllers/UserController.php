@@ -13,19 +13,41 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function register(Request $request){
-        $data=$request->validate([
-            'name'=>'required',
-            'email'=>'required|email',
-            'password'=>'required',
+    //     $data=$request->validate([
+    //         'name'=>'required',
+    //         'email'=>'required|email',
+    //         'password'=>'required',
 
-        ]);
-        $data['password'] = bcrypt($data['password']);
-        $user=DB::table('users')->insertGetId($data);
-        if($user){
-            return redirect()->route('login');
+    //     ]);
+    //     $data['password'] = bcrypt($data['password']);
+    //     $user=DB::table('users')->insertGetId($data);
+    //     if($user){
+    //         return redirect()->route('login');
             
             
-        }
+    //     }
+    $data = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    // Hash the password
+    $data['password'] = bcrypt($data['password']);
+
+    // Add role_id with a value of 4
+    $data['role_id'] = 4;
+
+    // Create the user using Eloquent ORM
+    $user = User::create($data);
+    
+    // echo "<pre>";
+    // print_r ($user);
+    // echo "</pre>";
+    // die;
+    if ($user) {
+        return redirect()->route('login');
+    }
     }
 
     public function list(Request $request)

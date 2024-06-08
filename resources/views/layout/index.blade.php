@@ -255,35 +255,37 @@
                 </div>
             </div>
         </div> --}}
-        <div class="container-fluid event py-5">
+        {{-- <div class="container-fluid event py-5">
             <div class="container py-5">
                 <h1 class="display-3 mb-5 wow fadeIn" data-wow-delay="0.1s">Upcoming <span class="text-primary">Events</span></h1>
-                @foreach ($data as $user)
+                @foreach ($events as $value)
+                <?php
+                dd($events);?>
                 
                 <div class="row g-4 event-item wow fadeIn" data-wow-delay="0.1s">
                     <div class="col-3 col-lg-2 pe-0">
                         <div class="text-center border-bottom border-dark py-3 px-2">
-                            <h6>{{ $user->date }}</h6>
-                            <p class="mb-0">{{ $user->time }}</p>
+                            <h6>{{ $value->date }}</h6>
+                            <p class="mb-0">{{ $value->time }}</p>
                         </div>
                     </div>
                     <div class="col-9 col-lg-6 border-start border-dark pb-5">
                         <div class="ms-3">
-                            <h4 class="mb-3">{{ $user->title }}</h4>
-                            <p class="mb-4">{{ $user->content }} </p>
+                            <h4 class="mb-3">{{ $value->title }}</h4>
+                            <p class="mb-4">{{ $value->content }} </p>
                             <a href="#" class="btn btn-primary px-3">Join Now</a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="overflow-hidden mb-5">
-                            <img src="{{ $user->image}} " class="img-fluid w-100" alt="">
+                            <img src="{{ $value->image}} " class="img-fluid w-100" alt="">
                         </div>
                     </div>
                 </div>
                 @endforeach
               
             </div>
-        </div>
+        </div> --}}
         <!-- Events End -->
 
 
@@ -495,7 +497,7 @@
 
 
         <!-- Testiminial Start -->
-        <div class="container-fluid testimonial py-5">
+        {{-- <div class="container-fluid testimonial py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 700px;">
                     <p class="fs-5 text-uppercase text-primary">Testimonial</p>
@@ -600,7 +602,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Testiminial End -->
     @endsection
 </body>

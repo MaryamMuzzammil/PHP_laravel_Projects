@@ -79,16 +79,17 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav ms-lg-auto mx-xl-auto">
                             <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-                            <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                            <a href="{{route('activity')}}" class="nav-item nav-link">Activities</a>
+                            <a href="{{route('blogs')}}" class="nav-item nav-link">Blog</a>
+                            {{-- <a href="{{route('activity')}}" class="nav-item nav-link">Activities</a> --}}
                             <a href="{{route('event')}}" class="nav-item nav-link">Events</a>
-                            <a href="{{route('sermons')}}" class="nav-item nav-link">Sermons</a>
+                            <a href="{{route('testimonial')}}" class="nav-item nav-link">Testimonial</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 rounded-0">
-                                    <a href="{{route('blogs')}}" class="dropdown-item">Latest Blog</a>
+                                    <a href="{{route('about')}}" class="dropdown-item">About</a>
                                     {{-- <a href="{{route('team')}}" class="dropdown-item">Our Team</a> --}}
-                                    <a href="{{route('testimonial')}}" class="dropdown-item">Testimonial</a>
+                                   
+                                    <a href="{{route('sermons')}}" class="dropdown-item">Sermons</a>
                                     {{-- <a href="404.html" class="dropdown-item">404 Page</a> --}}
                                 </div>
                             </div>
@@ -105,7 +106,6 @@
 @yield('contact')
 @yield('blogs')
 @yield('about')
-@yield('activity')
 @yield('sermons')
 @yield('team')
 @yield('testimonial')

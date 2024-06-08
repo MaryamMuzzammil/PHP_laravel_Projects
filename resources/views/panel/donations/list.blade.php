@@ -99,12 +99,12 @@
             <a href="{{ route('donationsadd') }}" class="btn btn-primary">Add Donation</a>
             @endif
           </div>
-        {{-- <form action="{{ route('donationslist') }}" method="GET" class="mb-3">
+        <form action="{{ route('donationslist') }}" method="GET" class="mb-3">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search donations..." value="{{ $search }}">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
-        </form> --}}
+        </form>
         <table class="table table-bordered">
             <thead>
               <tr>
