@@ -92,6 +92,13 @@ Route::post('/panel/testimonials/edit/{id}',[TestimonialController::class,'updat
 Route::get('/panel/testimonials/delete/{id}',[TestimonialController::class,'delete'])->name('testimonialsdelete');
 
 
+Route::get('/panel/donations',[DonationController::class,'list'])->name('donationslist');
+Route::get('/panel/donations/add',[DonationController::class,'add'])->name('donationsadd');
+Route::post('/panel/donations/add',[DonationController::class,'insert'])->name('donationsinsert');
+Route::get('/panel/donations/edit/{id}',[DonationController::class,'edit'])->name('donationsedit');
+Route::post('/panel/donations/edit/{id}',[DonationController::class,'update'])->name('donationsupdate');
+Route::get('/panel/donations/delete/{id}',[DonationController::class,'delete'])->name('donationsdelete');
+
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile');
 Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password');
 
