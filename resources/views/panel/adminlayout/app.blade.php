@@ -9,7 +9,9 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+  {{-- <!-- Favicons -->
+  <link href="{{ url('') }}/img/favicon.png" rel="icon">
+  <link href="{{ url('') }}/img/apple-touch-icon.png" rel="apple-touch-icon"> --}}
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">

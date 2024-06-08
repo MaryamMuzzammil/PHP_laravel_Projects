@@ -16,42 +16,19 @@ class TestimonialController extends Controller
         $testimonials = Testimonial::all();
         return view('layout.testimonial', ['data' => $testimonials]);
     }
-    public function list(Request $request)
-    {
-        $permissionTestimonial = PermissionRole::getPermission('Testimonial', Auth::user()->role_id);
-        if (empty($permissionTestimonial)) {
+    public function list()
+    {  $permissionTestimonial = PermissionRole::getPermission('Testimonial',Auth::user()->role_id);
+       if(empty( $permissionTestimonial)){
+
             abort(404);
         }
-    
-        $data['permissionAdd'] = PermissionRole::getPermission('Add Testimonial', Auth::user()->role_id);
-        $data['permissionEdit'] = PermissionRole::getPermission('Edit Testimonial', Auth::user()->role_id);
-        $data['permissionDelete'] = PermissionRole::getPermission('Delete Testimonial', Auth::user()->role_id);
-    
-        // Search and pagination
-        $search = $request->input('search');
-        $data['search'] = $search;
-    
-        // Role-based data filtering
-        if (Auth::user()->role->name == 'admin') {
-            // Admins see all testimonials
-            $query = Testimonial::query();
-        } else {
-            // Non-admins see only their testimonials
-            $query = Testimonial::where('user_id', Auth::id());
-        }
-    
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'LIKE', "%{$search}%")
-                  ->orWhere('content', 'LIKE', "%{$search}%");
-            });
-        }
-    
-        $data['getRecord'] = $query->paginate(10);
-    
-        return view('panel.testimonials.list', $data);
-    }
-    
+        $data['permissionAdd'] = PermissionRole::getPermission('Add Testimonial',Auth::user()->role_id);
+        $data['permissionEdit'] = PermissionRole::getPermission('Edit Testimonial',Auth::user()->role_id);
+        $data['permissionDelete'] = PermissionRole::getPermission('Delete Testimonial',Auth::user()->role_id);
+        $data['getRecord'] = Testimonial::getRecord();
+        return view('panel.testimonials.list',$data);
+
+}
     public function add() {
         $permissionTestimonial = PermissionRole::getPermission('Add Testimonial',Auth::user()->role_id);
         if(empty( $permissionTestimonial)){
@@ -64,42 +41,43 @@ class TestimonialController extends Controller
 
     public function insert(Request $req)
     {
-        $permissionTestimonial = PermissionRole::getPermission('Add Testimonial', Auth::user()->role_id);
-        if (empty($permissionTestimonial)) {
+        $permissionTestimonial = PermissionRole::getPermission('Add Testimonial',Auth::user()->role_id);
+       if(empty( $permissionTestimonial)){
+
             abort(404);
         }
-    
         $req->validate([
             'name' => 'required|string|max:255',
             'content' => 'required|string',
             'profession' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
-        if ($req->hasFile('image')) {
-            $file = $req->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $path = 'assets/uploads/';
-            $file->move(public_path($path), $filename);
-    
-            $testimonial = new Testimonial();
-            $testimonial->name = $req->name;
-            $testimonial->content = $req->content;
-            $testimonial->profession = $req->profession;
-            $testimonial->image = $path . $filename;
-            $testimonial->user_id = Auth::id(); // Add this line
-            $testimonial->created_at = now();
-            $testimonial->updated_at = now();
-    
-            if ($testimonial->save()) {
-                return redirect()->route('testimonialslist')->with('success', 'Testimonial added successfully.');
-            } else {
-                return back()->with('error', 'Failed to add testimonial.');
-            }
+
+        
+    if ($req->hasFile('image')) {
+        $file = $req->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time().'.'.$extension;
+        $path = 'assets/uploads/';
+        $file->move($path, $filename);
+
+        // Save Event Data
+        $testimonial = new Testimonial();
+        $testimonial->name = $req->name;
+        $testimonial->content = $req->content;
+        $testimonial->profession = $req->profession;
+        $testimonial->image = $path.$filename;
+        $testimonial->created_at = now();
+        $testimonial->updated_at = now();
+
+        if ($testimonial->save()) {
+            return redirect()->route('testimonialslist')->with('success', 'testimonial added successfully.');
         } else {
-            return back()->with('error', 'Image upload failed.');
+            return back()->with('error', 'Failed to add testimonial.');
         }
+    } else {
+        return back()->with('error', 'Image upload failed.');
+    }
     }
   public function edit($id)
     {   

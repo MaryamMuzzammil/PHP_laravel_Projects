@@ -22,42 +22,20 @@ class BlogController extends Controller
         $blogs = Blog::all();
         return view('layout.index', ['data' => $blogs]);
     }
-    public function list(Request $request)
-    {
-        $permissionBlog = PermissionRole::getPermission('Blog', Auth::user()->role_id);
-        if (empty($permissionBlog)) {
+    public function list()
+    {  
+        $permissionBlog = PermissionRole::getPermission('Blog',Auth::user()->role_id);
+       if(empty($permissionBlog)){
+
             abort(404);
         }
-    
-        $data['permissionAdd'] = PermissionRole::getPermission('Add Blog', Auth::user()->role_id);
-        $data['permissionEdit'] = PermissionRole::getPermission('Edit Blog', Auth::user()->role_id);
-        $data['permissionDelete'] = PermissionRole::getPermission('Delete Blog', Auth::user()->role_id);
-    
-        // Search and pagination
-        $search = $request->input('search');
-        $data['search'] = $search;
-    
-        // Role-based data filtering
-        if (Auth::user()->role->name == 'admin') {
-            // Admins see all blogs
-            $query = Blog::query();
-        } else {
-            // Non-admins see only their blogs
-            $query = Blog::where('user_id', Auth::id());
-        }
-    
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('title', 'LIKE', "%{$search}%")
-                  ->orWhere('content', 'LIKE', "%{$search}%");
-            });
-        }
-    
-        $data['getRecord'] = $query->paginate(10);
-    
-        return view('panel.blogs.list', $data);
-    }
-    
+        $data['permissionAdd'] = PermissionRole::getPermission('Add Blog',Auth::user()->role_id);
+        $data['permissionEdit'] = PermissionRole::getPermission('Edit Blog',Auth::user()->role_id);
+        $data['permissionDelete'] = PermissionRole::getPermission('Delete Blog',Auth::user()->role_id);
+        $data['getRecord'] = Blog::getRecord();
+        return view('panel.blogs.list',$data);
+
+}
     public function add() {
         $permissionBlog = PermissionRole::getPermission('Add Blog',Auth::user()->role_id);
        if(empty($permissionBlog)){

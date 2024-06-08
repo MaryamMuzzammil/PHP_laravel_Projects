@@ -11,5 +11,4 @@ class Blog extends Model
     static public function getRecord(){
         return Blog::get();
      }
-     
 }

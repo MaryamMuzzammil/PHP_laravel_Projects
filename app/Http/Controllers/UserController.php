@@ -28,7 +28,7 @@ class UserController extends Controller
         }
     }
 
-    public function list(Request $request)
+    public function list()
     {   
         $permissionUser = PermissionRole::getPermission('User',Auth::user()->role_id);
         if(empty($permissionUser)){
@@ -38,15 +38,8 @@ class UserController extends Controller
         $data['permissionAdd'] = PermissionRole::getPermission('Add User',Auth::user()->role_id);
         $data['permissionEdit'] = PermissionRole::getPermission('Edit User',Auth::user()->role_id);
         $data['permissionDelete'] = PermissionRole::getPermission('Delete User',Auth::user()->role_id);
-      
-        $search = $request->input('search');
-
-        $data['search'] = $search;
-        $data['getRecord'] = User::with('role')
-                                 ->where('name', 'LIKE', "%{$search}%")
-                                 ->orWhere('email', 'LIKE', "%{$search}%")
-                                 ->paginate(10);
-         $data['getRecord'] = User::getRecord();
+       
+        $data['getRecord'] = User::getRecord();
         return view('panel.user.list', $data);
     }
 

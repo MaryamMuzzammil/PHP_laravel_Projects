@@ -27,7 +27,7 @@ Route::view('/about', 'layout.about')->name('about');
 Route::view('/activity', 'layout.activity')->name('activity');
 Route::view('/sermons', 'layout.sermons')->name('sermons');
 // Route::view('/team', 'layout.team')->name('team');
-// Route::get('/testimonial', [TestimonialController::class,'index'])->name('testimonial');
+Route::get('/testimonial', [TestimonialController::class,'index'])->name('testimonial');
 Route::view('/register', 'layout.register')->name('register');
 Route::post('/registersave',[UserController::class,'register'])->name('registerSave');
 // Route::view('/editevent', 'layout.event_edit')->name('editevent');
@@ -35,9 +35,9 @@ Route::post('/registersave',[UserController::class,'register'])->name('registerS
 // Route::view('/editblog', 'layout.blog_edit')->name('editblog');
 // Route::post('/addblog', [BlogController::class, 'addblog'])->name('addblog');
 Route::resource('donations', DonationController::class);
-// Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
-Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
-// Route::post('testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
+Route::view('/testimonialedit', 'layout.testimonial_edit')->name('testimonial_edit');
+// Route::get('/testimonial', [TestimonialController::class, 'create'])->name('testimonial');
+Route::post('testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
 
 Route::post('/donate', [DonationController::class, 'donate'])->name('donate');
