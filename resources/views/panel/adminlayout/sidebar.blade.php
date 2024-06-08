@@ -9,7 +9,7 @@
         $permissionTestimonial = App\Models\PermissionRole::getPermission('Testimonial',Auth::user()->role_id);
         $permissionEvent = App\Models\PermissionRole::getPermission('Event',Auth::user()->role_id);
         $permissionForms_For_Donations = App\Models\PermissionRole::getPermission('Forms For Donations',Auth::user()->role_id);
-         $permissionDonations = App\Models\PermissionRole::getPermission('Donations',Auth::user()->role_id);
+         $permissionDonation = App\Models\PermissionRole::getPermission('Donation',Auth::user()->role_id);
         $permissionSettings = App\Models\PermissionRole::getPermission('Settings',Auth::user()->role_id);
       @endphp
 
@@ -73,9 +73,9 @@
         </li>
         @endif
 
-      @if (!empty($permissionDonations))
+      @if (!empty($permissionDonation))
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('donations.index')}}">
+        <a class="nav-link collapsed" href="{{route('donationslist')}}">
           <i class="bi bi-person"></i>
           <span>Donations</span>
         </a>
