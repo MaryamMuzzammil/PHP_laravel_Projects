@@ -27,17 +27,17 @@
         @csrf
         <div class="form-group">
             <label for="current_password">Current Password</label>
-            <input type="password" name="current_password" class="form-control" required>
+            <input type="password" name="current_password" class="form-control" >
         </div>
 <br>
         <div class="form-group">
             <label for="new_password">New Password</label>
-            <input type="password" name="new_password" class="form-control" required>
+            <input type="password" name="new_password" class="form-control" >
         </div>
 <br>
         <div class="form-group">
             <label for="new_password_confirmation">Confirm New Password</label>
-            <input type="password" name="new_password_confirmation" class="form-control" required>
+            <input type="password" name="new_password_confirmation" class="form-control" >
         </div>
            <br>
         <button type="submit" class="btn btn-primary">Change Password</button>

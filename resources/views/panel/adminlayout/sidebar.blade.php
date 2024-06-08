@@ -66,7 +66,7 @@
       @endif
         @if (!empty( $permissionForms_For_Donations))
         <li class="nav-item">
-          <a class="nav-link collapsed" href="{{route('donation.form')}}">
+          <a class="nav-link collapsed" href="{{route('donationsadd')}}">
             <i class="bi bi-person"></i>
             <span>Forms For Donations</span>
           </a>
